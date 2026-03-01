@@ -1,0 +1,18 @@
+CREATE SCHEMA `tabla_empresa` ;
+USE `tabla_empresa`;
+CREATE TABLE empleados (
+id_empleado INT NOT NULL  AUTO_INCREMENT,
+nombre VARCHAR (50) NOT NULL,
+apellido_pat VARCHAR (50) NOT NULL,
+apellido_mat VARCHAR (50) NOT NULL,
+rut VARCHAR (12) UNIQUE NOT NULL,
+PRIMARY KEY (id_empleado)
+);
+CREATE TABLE sueldos (
+id_sueldo INT NOT NULL AUTO_INCREMENT,
+id_empleado_fk INT NOT NULL,
+sueldo_base INT NOT NULL,
+bono_transporte INT NOT NULL,
+PRIMARY KEY (id_sueldo),
+FOREIGN KEY (id_empleado_fk) REFERENCES empleados (id_empleado)
+);
